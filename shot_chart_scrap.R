@@ -1,4 +1,6 @@
- ####
+library(tidyverse)
+library(NBAr)
+
 players <- get_players(2019) %>% pull(player_id)
 
 shots <- lapply(players,get_shotchart,season=2019)
@@ -9,6 +11,3 @@ for(i in 1:540){
 }
 
 write_csv(data,'all_19-20_shots.csv')
-
-### 
-shots <- read_csv("all_19-20_shots.csv")
